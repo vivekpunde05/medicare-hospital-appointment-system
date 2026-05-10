@@ -1,0 +1,25 @@
+# XAMPP / PHP
+/vendor/
+composer.lock
+
+# Environment files
+.env
+
+# Logs
+*.log
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+cache/
+
+# Database backups
+*.sql.bak
+

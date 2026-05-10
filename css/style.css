@@ -1,0 +1,222 @@
+/* ============================================================
+   MediCare Appointment System — Main Stylesheet
+   ============================================================ */
+
+/* CSS Variables — Color Palette */
+:root {
+    --color-primary:   #4a9fd4; /* light blue */
+    --color-secondary: #2ecc71; /* green */
+    --color-white:     #ffffff;
+    --color-bg:        #f0f8ff;
+    --color-text:      #333333;
+    --color-nav-bg:    #2980b9; /* slightly darker blue for nav */
+}
+
+/* ============================================================
+   Base / Reset
+   ============================================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+/* ============================================================
+   Site Header
+   ============================================================ */
+.site-header {
+    background: var(--color-primary);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.site-header img {
+    height: 60px;
+    width: auto;
+}
+
+.site-header h1 {
+    color: var(--color-white);
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+nav {
+    background: var(--color-nav-bg);
+    padding: 0 24px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    display: block;
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+nav a.active,
+nav a:hover {
+    background: var(--color-secondary);
+    border-radius: 4px;
+}
+
+/* ============================================================
+   Site Footer
+   ============================================================ */
+.site-footer {
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 20px 24px;
+    text-align: center;
+}
+
+.site-footer a {
+    color: var(--color-white);
+    text-decoration: underline;
+}
+
+.site-footer a:hover {
+    opacity: 0.85;
+}
+
+/* ============================================================
+   3-Column Layout 
+   ============================================================ */
+.layout-wrapper {
+    display: grid;
+    grid-template-columns: 220px 1fr 220px;
+    gap: 16px;
+    padding: 16px 24px;
+    min-height: calc(100vh - 200px);
+}
+
+.sidebar-left,
+.sidebar-right {
+    background: var(--color-white);
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.main-content {
+    background: var(--color-white);
+    padding: 24px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-left h3,
+.sidebar-right h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+}
+
+.sidebar-left ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-left li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.notice-item {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.notice-item h4 {
+    margin: 0 0 4px;
+    color: var(--color-primary);
+    font-size: 0.9rem;
+}
+
+.notice-item p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* ============================================================
+   Touch Targets — Requirement 7.4
+   Ensure all form inputs and buttons meet 44x44px minimum
+   ============================================================ */
+input,
+select,
+textarea,
+button {
+    min-height: 44px;
+}
+
+button,
+input[type="submit"],
+input[type="button"] {
+    min-width: 44px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+/* ============================================================
+   Responsive Layout 
+   Breakpoint: 768px
+   ============================================================ */
+@media (max-width: 768px) {
+    /* Collapse 3-column grid to single column */
+    .layout-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reorder columns: main content first, then sidebars */
+    .main-content {
+        order: 1;
+    }
+
+    .sidebar-left {
+        order: 2;
+    }
+
+    .sidebar-right {
+        order: 3;
+    }
+
+    /* Stack nav links vertically  */
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav a {
+        display: block;
+        padding: 12px 16px;
+    }
+
+    /* Stack header content */
+    .site-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
