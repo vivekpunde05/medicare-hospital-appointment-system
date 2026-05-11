@@ -7,11 +7,12 @@
  */
 
 $config = [
-    'host'     => 'localhost',
-    'dbname'   => 'medicare_db',
-    'username' => 'root',
-    'password' => '',
+    'host'     => getenv('DB_HOST') ?: 'localhost',
+    'dbname'   => getenv('DB_NAME') ?: 'medicare_db',
+    'username' => getenv('DB_USER') ?: 'root',
+    'password' => getenv('DB_PASS') ?: '',
 ];
+
 
 function getDB(): PDO {
     global $config;
